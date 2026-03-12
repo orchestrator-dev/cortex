@@ -20,6 +20,10 @@ Most headless CMS tools treat AI as a plugin. Cortex treats it as infrastructure
 
 Cortex uses two services with a deliberate division of labour. `cortex-server` (TypeScript/Fastify) owns the content model, API surface, auth, and async job dispatch. `cortex-ai-worker` (Python/FastAPI) owns the AI stack: embeddings, semantic chunking, auto-tagging, and vector indexing. They communicate over Redis queues for async workloads and direct HTTP for synchronous search calls. The result is a system where every layer does exactly what it is best at.
 
+<p align="center">
+  <img src="docs/cortex_infographic.png" alt="Cortex Architecture Infographic" width="100%" />
+</p>
+
 ```mermaid
 flowchart LR
     subgraph CL ["Client Layer"]
